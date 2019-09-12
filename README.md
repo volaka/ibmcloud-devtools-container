@@ -30,3 +30,5 @@ Then, you should follow the instructions to target **resource group**, **organis
 ## Support
 
 All feedbacks, requests and helps for making this image better are welcomed.
+
+[<img src="https://cdn3.iconfinder.com/data/icons/social-network-30/512/social-08-512.png" alt="IBM Cloud Turkey Developer Group" width="80px"/>](ibm.biz/trdevexmeetup)
