@@ -10,12 +10,28 @@ You need to have [docker](https://docs.docker.com/install/) installed on your ma
 
 ## Running the image
 
-You can copy and paste the following command to run this image and enter inside the container.
+You can copy and paste the following command to run this image and enter inside the container. This container wont remove itself if you exit it intentionally or by mistake. 
 
 ```sh
 docker run -d -t --name ibmcloud-devtools volaka/ubuntu-with-ibmcloud-devtools
 docker exec -it ibmcloud-devtools bash
 ```
+
+To use docker inside this container (Docker in Docker / DinD) you have to bind your docker socket with this container. By doing that, you will access all of the docker images and containers which had been run inside the container. You can bind the socket wiht the following code:
+
+```sh
+docker run -d -t -v /var/run/docker.sock:/var/run/docker.sock --name ibmcloud-devtools volaka/ubuntu-with-ibmcloud-devtools
+docker exec -it ibmcloud-devtools bash
+```
+If you want to access to your current directory path in this container and use docker inside, you can use the following commands:
+
+```sh
+docker run -d -t -v /var/run/docker.sock:/var/run/docker.sock -v "$PWD":/root/my-pc --name ibmcloud-devtools volaka/ubuntu-with-ibmcloud-devtools
+docker exec -it ibmcloud-devtools bash
+cd /root/my-pc
+ls -al
+```
+
 
 ## Connecting to IBM Cloud
 
